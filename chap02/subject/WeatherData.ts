@@ -35,7 +35,11 @@ export class WeatherData implements Subject {
       this.pressure !== undefined
     ) {
       for (const observer of this.observers) {
-        observer.update(this.temperature, this.humidity, this.pressure);
+        // Observerにpushする場合
+        // observer.update(this.temperature, this.humidity, this.pressure);
+
+        // Observerからpullされる場合
+        observer.update();
       }
     }
   }
